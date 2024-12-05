@@ -4,16 +4,16 @@ import DeleteRoomButton from './DeleteRoomButton';
 
 const MyRoomCard = ({ room }) => {
   return (
-    <div className="bg-white shadow rounded-lg p-4 mt-4 flex flex-col sm:flex-row justify-between items-center">
+    <div className="bg-[#FFFDF6] border border-black/10 rounded-lg p-6 mt-4 flex flex-col sm:flex-row justify-between items-center hover:shadow-lg transition-all duration-300">
       <div className="flex flex-col">
-        <h4 className="text-lg font-semibold">{room.name}</h4>
+        <h4 className="text-xl font-medium text-black">{room.name}</h4>
       </div>
 
-      <div className="flex flex-col sm:flex-row w-full sm:w-auto sm:space-x-2 mt-2 sm:mt-0">
+      <div className="flex flex-col sm:flex-row w-full sm:w-auto sm:space-x-4 mt-4 sm:mt-0">
         <Link
           href={`/rooms/${room.$id}`}
-          className="bg-blue-500 text-white px-4 py-2 rounded mb-2 sm:mb-0 w-full sm:w-auto text-center hover:bg-blue-700">
-          <FaEye className="inline mr-1" /> View
+          className="bg-black text-[#FFFDF6] px-6 py-2.5 rounded-full text-sm font-medium hover:bg-black/90 transition-colors text-center w-full sm:w-auto flex items-center justify-center">
+          <FaEye className="mr-2" /> View
         </Link>
 
         <DeleteRoomButton roomId={room.$id} />

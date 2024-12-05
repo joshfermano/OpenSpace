@@ -1,13 +1,13 @@
 'use client';
-import { useEffect } from 'react';
-import { useFormState } from 'react-dom'; // Changed from useActionState
+import { useFormState } from 'react-dom';
 import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 import { toast } from 'react-toastify';
 import Heading from '@/components/Heading';
 import createRoom from '@/app/actions/createRoom';
 
 const AddRoomPage = () => {
-  const [state, formAction] = useFormState(createRoom, {}); // Changed to useFormState
+  const [state, formAction] = useFormState(createRoom, {});
   const router = useRouter();
 
   useEffect(() => {
@@ -17,179 +17,202 @@ const AddRoomPage = () => {
       router.push('/rooms/my');
     }
   }, [state, router]);
+
   return (
-    <>
+    <div className="max-w-2xl mx-auto px-4 py-8">
       <Heading title="Add a Room" />
-      <div className="bg-white shadow-lg rounded-lg p-6 w-full">
-        <form action={formAction}>
-          <div className="mb-4">
+      <div className="bg-[#FFFDF6] border border-black/10 rounded-lg p-6 mt-4">
+        <form action={formAction} className="space-y-6">
+          <div>
             <label
               htmlFor="name"
-              className="block text-gray-700 font-bold mb-2">
+              className="block text-sm font-medium text-black mb-2">
               Room Name
             </label>
             <input
               type="text"
               id="name"
               name="name"
-              className="border rounded w-full py-2 px-3"
-              placeholder="Enter a name (Large Conference Room)"
+              className="mt-1 block w-full px-4 py-2.5 border border-black/10 rounded-lg
+              bg-[#FFFDF6] shadow-sm hover:border-black/30 focus:border-black
+              focus:ring-0 transition-all duration-300 text-sm"
+              placeholder="Enter room name"
               required
             />
           </div>
 
-          <div className="mb-4">
+          <div>
             <label
               htmlFor="description"
-              className="block text-gray-700 font-bold mb-2">
+              className="block text-sm font-medium text-black mb-2">
               Description
             </label>
             <textarea
               id="description"
               name="description"
-              className="border rounded w-full h-24 py-2 px-3"
-              placeholder="Enter a description for the room"
-              required></textarea>
+              className="mt-1 block w-full px-4 py-2.5 border border-black/10 rounded-lg
+              bg-[#FFFDF6] shadow-sm hover:border-black/30 focus:border-black
+              focus:ring-0 transition-all duration-300 text-sm h-24 resize-none"
+              placeholder="Enter room description"
+              required
+            />
           </div>
 
-          <div className="mb-4">
+          <div>
             <label
               htmlFor="sqft"
-              className="block text-gray-700 font-bold mb-2">
+              className="block text-sm font-medium text-black mb-2">
               Square Feet
             </label>
             <input
               type="number"
               id="sqft"
               name="sqft"
-              className="border rounded w-full py-2 px-3"
-              placeholder="Enter room size in ft"
+              className="mt-1 block w-full px-4 py-2.5 border border-black/10 rounded-lg
+              bg-[#FFFDF6] shadow-sm hover:border-black/30 focus:border-black
+              focus:ring-0 transition-all duration-300 text-sm"
+              placeholder="Enter room size"
               required
             />
           </div>
 
-          <div className="mb-4">
+          <div>
             <label
               htmlFor="capacity"
-              className="block text-gray-700 font-bold mb-2">
+              className="block text-sm font-medium text-black mb-2">
               Capacity
             </label>
             <input
               type="number"
               id="capacity"
               name="capacity"
-              className="border rounded w-full py-2 px-3"
-              placeholder="Number of people the room can hold"
+              className="mt-1 block w-full px-4 py-2.5 border border-black/10 rounded-lg
+              bg-[#FFFDF6] shadow-sm hover:border-black/30 focus:border-black
+              focus:ring-0 transition-all duration-300 text-sm"
+              placeholder="Enter room capacity"
               required
             />
           </div>
 
-          <div className="mb-4">
-            <label
-              htmlFor="price_per_hour"
-              className="block text-gray-700 font-bold mb-2">
-              Price Per Hour
-            </label>
-            <input
-              type="number"
-              id="price_per_hour"
-              name="price_per_hour"
-              className="border rounded w-full py-2 px-3"
-              placeholder="Enter price per hour"
-              required
-            />
-          </div>
-
-          <div className="mb-4">
+          <div>
             <label
               htmlFor="address"
-              className="block text-gray-700 font-bold mb-2">
+              className="block text-sm font-medium text-black mb-2">
               Address
             </label>
             <input
               type="text"
               id="address"
               name="address"
-              className="border rounded w-full py-2 px-3"
-              placeholder="Enter full address"
+              className="mt-1 block w-full px-4 py-2.5 border border-black/10 rounded-lg
+              bg-[#FFFDF6] shadow-sm hover:border-black/30 focus:border-black
+              focus:ring-0 transition-all duration-300 text-sm"
+              placeholder="Enter room address"
               required
             />
           </div>
 
-          <div className="mb-4">
+          <div>
             <label
               htmlFor="location"
-              className="block text-gray-700 font-bold mb-2">
+              className="block text-sm font-medium text-black mb-2">
               Location
             </label>
             <input
               type="text"
               id="location"
               name="location"
-              className="border rounded w-full py-2 px-3"
-              placeholder="Location (Building, Floor, Room)"
+              className="mt-1 block w-full px-4 py-2.5 border border-black/10 rounded-lg
+    bg-[#FFFDF6] shadow-sm hover:border-black/30 focus:border-black
+    focus:ring-0 transition-all duration-300 text-sm"
+              placeholder="Enter room location (e.g., 2nd Floor, Building A)"
               required
             />
           </div>
 
-          <div className="mb-4">
+          <div>
+            <label
+              htmlFor="price_per_hour"
+              className="block text-sm font-medium text-black mb-2">
+              Price per Hour ($)
+            </label>
+            <input
+              type="number"
+              id="price_per_hour"
+              name="price_per_hour"
+              className="mt-1 block w-full px-4 py-2.5 border border-black/10 rounded-lg
+              bg-[#FFFDF6] shadow-sm hover:border-black/30 focus:border-black
+              focus:ring-0 transition-all duration-300 text-sm"
+              placeholder="Enter hourly rate"
+              required
+            />
+          </div>
+
+          <div>
             <label
               htmlFor="availability"
-              className="block text-gray-700 font-bold mb-2">
+              className="block text-sm font-medium text-black mb-2">
               Availability
             </label>
             <input
               type="text"
               id="availability"
               name="availability"
-              className="border rounded w-full py-2 px-3"
-              placeholder="Availability (Monday - Friday, 9am - 5pm)"
+              className="mt-1 block w-full px-4 py-2.5 border border-black/10 rounded-lg
+              bg-[#FFFDF6] shadow-sm hover:border-black/30 focus:border-black
+              focus:ring-0 transition-all duration-300 text-sm"
+              placeholder="e.g., Mon-Fri 9AM-5PM"
               required
             />
           </div>
 
-          <div className="mb-4">
+          <div>
             <label
               htmlFor="amenities"
-              className="block text-gray-700 font-bold mb-2">
+              className="block text-sm font-medium text-black mb-2">
               Amenities
             </label>
             <input
               type="text"
               id="amenities"
               name="amenities"
-              className="border rounded w-full py-2 px-3"
-              placeholder="Amenities CSV (projector, whiteboard, etc.)"
+              className="mt-1 block w-full px-4 py-2.5 border border-black/10 rounded-lg
+              bg-[#FFFDF6] shadow-sm hover:border-black/30 focus:border-black
+              focus:ring-0 transition-all duration-300 text-sm"
+              placeholder="projector, whiteboard, etc."
               required
             />
           </div>
 
-          {/* <!-- Image Upload --> */}
-          <div className="mb-8">
+          <div>
             <label
               htmlFor="image"
-              className="block text-gray-700 font-bold mb-2">
+              className="block text-sm font-medium text-black mb-2">
               Image
             </label>
-
             <input
               type="file"
               id="image"
               name="image"
-              className="border rounded w-full py-2 px-3"
+              className="mt-1 block w-full px-4 py-2.5 border border-black/10 rounded-lg
+              bg-[#FFFDF6] shadow-sm hover:border-black/30 focus:border-black
+              focus:ring-0 transition-all duration-300 text-sm file:mr-4 file:py-2 
+              file:px-4 file:rounded-full file:border-0 file:text-sm file:font-medium
+              file:bg-black file:text-[#FFFDF6] hover:file:bg-black/90"
+              accept="image/*"
             />
           </div>
 
-          <div className="flex flex-col gap-5">
-            <button
-              type="submit"
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">
-              Save
-            </button>
-          </div>
+          <button
+            type="submit"
+            className="w-full bg-black text-[#FFFDF6] px-6 py-2.5 rounded-full text-sm 
+            font-medium hover:bg-[#FFFDF6] hover:text-black hover:border hover:border-black
+            transition-all duration-300">
+            Create Room
+          </button>
         </form>
       </div>
-    </>
+    </div>
   );
 };
 
