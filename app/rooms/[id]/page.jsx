@@ -65,7 +65,7 @@ const RoomPage = async ({ params }) => {
               <div className="flex items-center">
                 <span className="text-black font-medium w-32">Price:</span>
                 <span className="text-black/70">
-                  ${room.price_per_hour}/hour
+                  ₱{room.price_per_hour}/hour
                 </span>
               </div>
 

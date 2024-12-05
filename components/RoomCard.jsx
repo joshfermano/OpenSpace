@@ -32,7 +32,7 @@ const RoomCard = ({ room }) => {
             {room.availability}
           </p>
           <p className="text-sm text-black/70">
-            <span className="font-medium text-black">Price:</span> $
+            <span className="font-medium text-black">Price:</span> ₱
             {room.price_per_hour}/hour
           </p>
         </div>

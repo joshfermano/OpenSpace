@@ -134,7 +134,7 @@ const AddRoomPage = () => {
             <label
               htmlFor="price_per_hour"
               className="block text-sm font-medium text-black mb-2">
-              Price per Hour ($)
+              Price per Hour (₱)
             </label>
             <input
               type="number"
