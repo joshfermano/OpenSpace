@@ -1,7 +1,7 @@
 import { Inter } from 'next/font/google';
 import Header from '@/components/Header';
+import AuthWrapper from '@/components/AuthWrapper';
 import Footer from '@/components/Footer';
-import AuthWrapper from '@/components/authWrapper';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../assets/styles/globals.css';
