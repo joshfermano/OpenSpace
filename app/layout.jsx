@@ -16,17 +16,17 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <AuthWrapper>
-      <html lang="en">
-        <body className={`${inter.className} bg-cream`}>
+    <html lang="en">
+      <body className={`${inter.className} bg-cream`}>
+        <AuthWrapper>
           <Header />
           <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
             {children}
           </main>
           <Footer />
           <ToastContainer />
-        </body>
-      </html>
-    </AuthWrapper>
+        </AuthWrapper>
+      </body>
+    </html>
   );
 }
