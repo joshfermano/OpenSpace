@@ -1,6 +1,6 @@
-import getAllRooms from './actions/getAllRooms';
 import RoomCard from '@/components/RoomCard';
 import Heading from '@/components/Heading';
+import getAllRooms from './actions/getAllRooms';
 
 export default async function Home() {
   const rooms = await getAllRooms();
@@ -9,9 +9,9 @@ export default async function Home() {
     <>
       <Heading title="Available Rooms" />
       {rooms.length > 0 ? (
-        rooms.map((room) => <RoomCard key={room.$id} room={room} />)
+        rooms.map((room) => <RoomCard room={room} key={room.$id} />)
       ) : (
-        <p>No Rooms Available</p>
+        <p>No rooms available at the moment</p>
       )}
     </>
   );
