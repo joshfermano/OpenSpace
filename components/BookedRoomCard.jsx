@@ -2,36 +2,38 @@ import Link from 'next/link';
 import CancelBookingButton from './CancelBookingButton';
 
 const BookedRoomCard = ({ booking }) => {
-  const { room_id: room } = booking;
+  const { room_id: room } = booking || {};
 
   const formatDate = (dateString) => {
+    if (!dateString) return '';
+
     const date = new Date(dateString);
-
-    // Get Month
-    const options = { month: 'short' };
-    const month = date.toLocaleString('en-PH', options, { timezone: 'UTC' });
-
-    // Get Day
-    const day = date.getUTCDate();
-
-    // Format Time in UTC 12-hour format
-    const timeOptions = {
+    const options = {
+      month: 'short',
+      day: 'numeric',
       hour: 'numeric',
-      minute: 'numeric',
+      minute: '2-digit',
       hour12: true,
-      timezone: 'UTC',
+      timeZone: 'Asia/Manila',
     };
 
-    const time = date.toLocaleString('en-PH', timeOptions);
-
-    // Final Formatted String
-    return `${month} ${day} at ${time}`;
+    return date.toLocaleString('en-US', options);
   };
+
+  if (!room) {
+    return (
+      <div className="bg-[#FFFBF5] border border-black/10 shadow-sm rounded-lg p-6 mt-4">
+        <p className="text-sm text-black/70">Room information unavailable</p>
+      </div>
+    );
+  }
 
   return (
     <div className="bg-[#FFFBF5] border border-black/10 shadow-sm rounded-lg p-6 mt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center hover:border-black/20 transition-all">
       <div>
-        <h4 className="text-lg font-medium text-black/90">{room.name}</h4>
+        <h4 className="text-lg font-medium text-black/90">
+          {room?.name || 'Unnamed Room'}
+        </h4>
         <div className="space-y-1 mt-2">
           <p className="text-sm text-black/70">
             <span className="font-medium">Check In:</span>{' '}
