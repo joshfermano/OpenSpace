@@ -6,8 +6,8 @@ import { toast } from 'react-toastify';
 import bookRoom from '@/app/actions/bookRoom';
 
 const BookingForm = ({ room }) => {
-  const [state, formAction] = useFormState(bookRoom, {}); // Changed to useFormState
-  const router = useRouter(); // Added () to initialize router
+  const [state, formAction] = useFormState(bookRoom, {});
+  const router = useRouter();
 
   useEffect(() => {
     if (state.error) toast.error(state.error);
